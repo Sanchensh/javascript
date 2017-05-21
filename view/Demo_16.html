@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var timer = null;
+            btn1.onclick=function () {
+              timer = setInterval(function () {//定时器是有返回值的
+                  alert("a");
+              },2000);
+            };
+            btn2.onclick=function () {
+                clearInterval(timer);
+            }
+        };
+    </script>
+</head>
+<body>
+    <input type="button" value="开启" id="btn1">
+    <input type="button" value="关闭" id="btn2">
+</body>
+</html>

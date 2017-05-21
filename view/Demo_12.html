@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function css() {
+            if(arguments.length == 2)//arguments是可变参数，相当于参数是一个可变的Object数组
+                return arguments[0];
+            else return arguments[1];
+        }
+        alert(css(1,2,"a"));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

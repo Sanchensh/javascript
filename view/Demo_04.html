@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function text() {
+            var oTxt = document.getElementById("txt1");
+//            oTxt.value = "asdf";//第一种操作属性的方法，用.
+            oTxt['value'] = "asdfg";//第二种操作属性的方法，用[]，里面的字符串可以用参数存起来
+        }
+    </script>
+</head>
+<body>
+    <input id="txt1" type="text">
+    <input type="button" value="改变文字" onclick="text()">
+</body>
+</html>

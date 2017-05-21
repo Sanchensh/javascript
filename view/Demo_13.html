@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("div1");
+//            alert(oDiv.style.width);只能取到行间样式，不能取到非行间样式
+//            alert(getComputedStyle(oDiv,false).width);可以取到非行间样式，但是会出现不兼容的情况,在IE7以下不能用
+//            alert(oDiv.currentStyle.width);//也可以取到非行间样式，但是只能在IE7以下使用
+            if(oDiv.currentStyle!=null){//解决兼容性问题
+                alert(oDiv.currentStyle.width);
+            } else {
+                alert(getComputedStyle(oDiv,false).width);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

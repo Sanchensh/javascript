@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 150px;
+            height: 80px;
+            background-color: red;
+            display: block;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var div = document.getElementsByTagName("div");
+            for (var i=0;i<div.length;i++){
+                div[i].timer = null;
+                div[i].onmouseover=function () {
+                    move(this,500);
+                };
+                div[i].onmouseout=function () {
+                    move(this,150);
+                };
+            }
+        };
+        function move(div,target) {
+            clearInterval(div.timer);
+            div.timer = setInterval(function () {
+                var speed = (target-div.offsetWidth)/6;
+                speed = speed>0?Math.ceil(speed):Math.floor(speed);
+                if(div.offsetWidth == target){
+                    clearInterval(div.timer);
+                }else {
+                    div.style.width=div.offsetWidth + speed +"px";
+                }
+            },30);
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
+<!--offsetWidth这个属性会有bug-->

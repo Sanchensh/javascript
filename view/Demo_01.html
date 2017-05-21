@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 150px;
+            height: 50px;
+            background-color: #45ff7e;
+            display: none;
+        }
+    </style>
+    <script>
+        function A() {
+            var oDiv = document.getElementById("div1");
+            oDiv.style.display = "block";
+        }
+        function B() {
+            var oDiv = document.getElementById("div1");
+            oDiv.style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" onmouseover="A()" onmouseout="B()" />
+    <div id="div1">为了您的安全</div>
+</body>
+</html>
+<!--不能直接拿着id用，这样会产生不兼容-->

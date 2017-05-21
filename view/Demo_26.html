@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var ul = document.getElementById("ul1");
+            var frag = document.createDocumentFragment();//创建文档碎片
+            for (var i=0;i<10000;i++){
+                var li = document.createElement("li");
+                frag.appendChild(li);
+            }
+            ul.appendChild(frag);//几乎没用
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+    </ul>
+</body>
+</html>

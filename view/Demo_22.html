@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var txt = document.getElementById("txt1");
+            var  btn = document.getElementById("btn1");
+            btn.onclick=function () {
+//                txt.value = "asdrf";
+                txt["value"] = "asdf";
+//                txt.setAttribute("value","asdf");
+            }
+        };
+    </script>
+</head>
+<body>
+    <input id="txt1" type="text">
+    <input id="btn1" type="button" value="按钮">
+</body>
+</html>

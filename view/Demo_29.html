@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var f = document.getElementById("form1");
+            f.onsubmit= function () {
+                alert("aaa");
+            };
+        };
+    </script>
+</head>
+<body>
+<form id="form1" action="www.baidu.com">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
+<!--后台通过name属性得到数据-->

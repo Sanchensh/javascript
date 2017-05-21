@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var t = document.getElementById("table1");
+//            alert(t.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[1].getElementsByTagName("td")[1].innerHTML);
+//            alert(t.tBodies[0].rows[1].cells[1].innerHTML);
+            /*for (var i=0;i<t.tBodies[0].rows.length;i++){
+                if(i%2){
+                    t.tBodies[0].rows[i].style.background = "red";
+                }else{
+                    t.tBodies[0].rows[i].style.background = "green";
+                }//隔行变色
+            }*/
+            for (var i=0;i<t.tBodies[0].rows.length;i++){
+                t.tBodies[0].rows[i].onmouseover=function () {
+                    this.style.background = "green";
+                }
+                t.tBodies[0].rows[i].onmouseout=function () {
+                    this.style.background = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<table id="table1" align="center" border="1px solid black" width="300px">
+    <thead>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>年龄</td>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>xu</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>li</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>wang</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>yang</td>
+            <td>23</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

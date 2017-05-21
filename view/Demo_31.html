@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            filter: alpha(opacity:30);
+            opacity: 0.3;/*透明度属性*/
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var div = document.getElementById("div1");
+            div.onmouseover=function () {
+                move(100);
+            };
+            div.onmouseout=function () {
+                move(30);
+            };
+        };
+        var timer = null;
+        var opacity = 30;//全局变量，不能放在函数里面，那样是局部变量，会导致不能恢复透明度
+        var speed;
+        function move(target) {
+            var div = document.getElementById("div1");
+            clearInterval(timer);
+            timer=setInterval(function () {
+                if(opacity<target){
+                    speed = 1;
+                } else {
+                    speed = -1;
+                }
+                if(opacity==target){
+                    clearInterval(timer);
+                } else {
+                    opacity = opacity + speed;
+                    div.style.filter = "alpha(opacity:" + opacity + ")";
+                    div.style.opacity = opacity/100;
+                }
+            },10);
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

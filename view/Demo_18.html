@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 75px;
+            height: 20px;
+            background-color: #45ff7e;
+            display: block;
+            border: 1px solid black;
+            font-size: 10px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var d1 = document.getElementById("div1");
+            var d2 = document.getElementById("div2");
+            var timer1 = null;
+            d1.onmouseover = function () {
+                setTimeout(function () {
+                    d2.style.display = 'block';//设置行间样式
+                }, 1500);//设置鼠标移入后1.5秒显示
+            };
+            d1.onmouseout = function () {
+                timer1 = setTimeout(function () {
+                    d2.style.display = 'none';//设置行间样式
+                }, 1500);//设置鼠标移出后1.5秒消失
+            };
+            d2.onmouseover=function () {
+                d2.style.display = "block";
+                clearTimeout(timer1);
+            };
+            d2.onmouseout = function () {
+                setTimeout(function () {
+                    d2.style.display = 'none';//设置行间样式
+                }, 1500);//设置鼠标移出后1.5秒消失
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="div1">鼠标移入显示</div>
+    <div id="div2"></div>
+</body>
+</html>

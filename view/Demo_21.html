@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var ul = document.getElementById("ul1");
+//            alert(ul.children.length);
+            for(var i = 0;i<ul.childNodes.length;i++){
+//                nodeType等于三时，就是文本节点，等于一时是元素节点
+//                alert(ul.childNodes[i].nodeType);
+                if(ul.childNodes[i].nodeType == 1){
+                    alert("子节点");
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<!--子，父节点只算第一层-->

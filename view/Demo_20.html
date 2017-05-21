@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #div1{
+            width: 712px;
+            height: 108px;
+            margin: 100px auto;
+            position: relative;
+            background-color: red;
+            overflow: hidden;/*超过边界的让图片隐藏*/
+        }
+        #div1 ul{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        #div1 ul li{
+            width: 178px;
+            height: 108px;
+            float: left;
+            list-style: none;/*将列表前面的圆圈去掉*/
+            left: 0px;
+            top: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div1 = document.getElementById("div1");
+            var ul = div1.getElementsByTagName("ul")[0];
+            var  li = ul.getElementsByTagName("li");
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var ss = null;
+            var timer = null;
+            btn1.onclick = function () { ss = -2; };
+            btn2.onclick =function () { ss=2; };
+            ul.innerHTML = ul.innerHTML+ul.innerHTML;//让li的个数翻倍，功能类似于有8个li，例外四个和前面四个是一样的
+            ul.style.width = li[0].offsetWidth*li.length+"px";//设置ul的宽
+            function move() {
+                if (ul.offsetLeft<-ul.offsetWidth/2 && ss < 0 ){//当ul移动一半时，使其又从0开始运动
+                    ul.style.left = 0;
+                }else if(ss >0 && ul.offsetLeft>0){
+                    ul.style.left = -ul.offsetWidth/2 + "px";//当ul向右移动一半时，使其又从0开始
+                }
+                ul.style.left = ul.offsetLeft + ss + "px";
+            }
+            timer = setInterval(move,30);//加载页面是就执行该方法一次
+            div1.onmouseover = function () {
+                clearInterval(timer);
+            }
+            div1.onmouseout = function () {
+                timer = setInterval(move,30);
+            }
+        };
+    </script>
+</head>
+<body>
+    <input id="btn1" type="button" value="向左">
+    <input id="btn2" type="button" value="向右">
+    <div id="div1">
+        <ul>
+            <li><img src="../image/11.jpg"></li>
+            <li><img src="../image/22.jpg"></li>
+            <li><img src="../image/33.jpg"></li>
+            <li><img src="../image/44.jpg"></li>
+        </ul>
+    </div>
+</body>
+</html>

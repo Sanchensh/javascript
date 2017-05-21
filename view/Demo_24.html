@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var btn = document.getElementById("btn");
+            var ul = document.getElementById("ul1");
+            var txt1 = document.getElementById("txt1");
+            btn.onclick=function () {
+                var li = document.createElement("li");
+                var aLi =ul.getElementsByTagName("li");
+                li.innerHTML = txt1.value;
+//                ul.appendChild(li);//父级.appendChild(子节点)，在后面添加
+                if(aLi.length>0)
+                    ul.insertBefore(li,aLi[0]);//将元素往前面插入
+                else
+                    ul.appendChild(li);
+            };
+        };
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input id="btn" type="button" value="创建">
+    <ul id="ul1"></ul>
+</body>
+</html>

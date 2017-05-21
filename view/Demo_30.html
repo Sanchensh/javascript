@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+            left: 0px;
+            top: 100px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var div = document.getElementById("div1");
+            var btn = document.getElementById("btn");
+            var timer = null;
+            btn.onclick=function () {
+                clearInterval(timer);//关闭以前的定时器，防止多次点击按钮加速的问题
+                timer = setInterval(function () {
+                    if(div.offsetLeft>300){
+                        clearInterval(timer);//运动到指定的位置后不动
+                    }else{
+                        div.style.left = div.offsetLeft + 1 + "px";
+                    }
+                },10);
+            };
+        };
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="点击">
+    <div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: #45ff7e;
+            display: block;
+        }
+    </style>
+    <script>
+        function color(colors) {
+            var oDiv = document.getElementById("div1");
+            oDiv.style.backgroundColor = colors;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="变红" onclick="color('red')">
+    <input type="button" value="变绿" onclick="color('green')">
+    <input type="button" value="变黄" onclick="color('yellow')">
+    <div id="div1"></div>
+</body>
+</html>
+<!--CSS中的#表示id;.表示class;什么都没有表示标签-->

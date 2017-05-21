@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 150px;
+            height: 150px;
+            display: block;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oTxt = document.getElementById("oTxt");
+            var oBtn = document.getElementById("oBtn");
+            var oDiv = document.getElementById("div1");
+            oBtn.onclick=function () {
+                oDiv.innerHTML = oTxt.value;
+            };
+        };
+    </script>
+</head>
+<body>
+    <input type="text" id="oTxt">
+    <input type="button" value="设置文字" id="oBtn">
+    <div id="div1"></div>
+</body>
+</html>
+<!--innerHTML里面如果是HTML代码，那么会加载成真正的HTML文件-->
